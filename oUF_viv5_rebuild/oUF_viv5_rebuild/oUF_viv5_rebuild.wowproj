@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{50f2b32e-e455-49f8-9efa-10feec7fecce}</ProjectGuid>
+    <Name>oUF_viv5_rebuild</Name>
+    <AssemblyName>oUF_viv5_rebuild</AssemblyName>
+    <RootNamespace>oUF_viv5_rebuild</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="cfg.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="core.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="lib.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="oUF_viv5_rebuild.toc">
+      <SubType>TableOfContents</SubType>
+    </Content>
+    <Content Include="tags.lua">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(DevEnvDir)\Extensions\Tools\MSBuild\Microsoft\WowAddonStudio\3.0\WowAddonStudio.targets" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it. 
+		
+	<Target Name="BeforeClean"></Target>
+	<Target Name="AfterClean"></Target>
+	<Target Name="BeforeRebuild"></Target>
+	<Target Name="AfterRebuild"></Target>
+	<Target Name="BeforeDeploy"></Target>
+	<Target Name="AfterDeploy"></Target>
+	-->
+</Project>

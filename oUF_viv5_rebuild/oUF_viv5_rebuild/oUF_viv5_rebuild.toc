@@ -1,0 +1,15 @@
+## Title: oUF_|cff1aff8bviv 5 rebuild|r
+## Version: 0.1
+## Author: Dawn & Rebuild by ÈûÂ¶ÐÝË¹
+## Interface: 40200
+## Notes: compact oUF layout ... Rebuild viv5 based on ouf 1.5
+## Dependencies: oUF
+
+cfg.lua
+tags.lua
+modules\DebuffHighlight.lua
+modules\AuraWatch.lua
+modules\raidDebuffs.lua
+modules\Smooth.lua
+lib.lua
+core.lua
