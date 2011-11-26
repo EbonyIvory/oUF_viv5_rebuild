@@ -22,7 +22,7 @@ cfg.showPet = true -- show pet frame
 cfg.showPetTarget = false -- show pet frame
 cfg.showFocus = true -- show focus frame
 cfg.showFocusTarget = false -- show focus target frame
-cfg.showBossFrames = false	-- Show boss frames
+cfg.showBossFrames = false    -- Show boss frames
 
 cfg.showParty = false -- show party frames (shown as 5man raid)
 cfg.showRaid = false -- show raid frames
@@ -54,11 +54,11 @@ cfg.raid40AnchorPoint = "TOP" -- Defines 40man raid's anchor point. "BOTTOM" wil
 -- Misc frame settings
 cfg.raidScale = 1 -- scale factor for raid frames
 cfg.frameScale = 1 -- scale factor for all other frames
-cfg.classBar = false	-- show player class bar
+cfg.classBar = false    -- show player class bar
 cfg.Castbars = false -- use built-in castbars
 
 -- Plugins
-cfg.ShowIncHeals = false	-- Show incoming heals in player and raid frames
+cfg.ShowIncHeals = false    -- Show incoming heals in player and raid frames
 cfg.smoothHealth = true     -- Smooth healthbar updates
 cfg.smoothPower = true      -- Smooth powerbar updates
 cfg.enableDebuffHighlight = false -- Edable Highlighting of dispellable debuffs
@@ -145,7 +145,7 @@ cfg.width = {
     ["L"] = 230,    -- player, target, focus
     ["M"] = 128,    -- arena, MT, ...
     ["S"] = 112,    -- ToT, FocusTarget, pet
-    ["R"] = 70, 	-- raid, party
+    ["R"] = 70,     -- raid, party
 }
 
 cfg.powerBarHeight = 6

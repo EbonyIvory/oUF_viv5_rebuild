@@ -232,7 +232,7 @@ lib.AddTextTags = function(self)
         local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 1.6, cfg.fontF)
         hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
         self:Tag(hp, "[viv5:hp]")
-        hp:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 0)
+        hp:SetPoint("BOTTOMRIGHT", self, "TOPRIGHT", 0, 0)
 
         local perhp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS, cfg.fontF)
         perhp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
@@ -246,7 +246,7 @@ lib.AddTextTags = function(self)
 
         local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
         self:Tag(name, "[viv5:level][viv5:color][viv5:shortname][viv5:afkdnd]")
-        name:SetPoint("BOTTOMRIGHT", self, "TOPRIGHT", 0, 3)
+        name:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 3)
 
     elseif self.unitType == "pet" then
         local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)

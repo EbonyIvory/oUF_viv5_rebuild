@@ -62,7 +62,7 @@ end
 
 oUF.Tags["viv5:shortname"] = function(unit)
     local name = UnitName(unit)
-    return utf8sub(name, 8, true)
+    return utf8sub(name, 6, true)
 end
 oUF.TagEvents["viv5:shortname"] = 'UNIT_NAME_UPDATE'
 

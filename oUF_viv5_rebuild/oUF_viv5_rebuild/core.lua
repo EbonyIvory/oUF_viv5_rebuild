@@ -54,7 +54,7 @@ UnitSpecific = {
 
         -- set frame default size
         self:SetAttribute('initial-height', cfg.height.L)
-        self:SetAttribute('initial-width', cfg.width.L)	
+        self:SetAttribute('initial-width', cfg.width.L)    
 
         -- set status bar specifics
         self.Health:SetWidth(cfg.width.L * 0.7)
@@ -99,7 +99,7 @@ UnitSpecific = {
 
         -- set frame default size
         self:SetAttribute('initial-height', cfg.height.L)
-        self:SetAttribute('initial-width', cfg.width.L)	
+        self:SetAttribute('initial-width', cfg.width.L)    
 
         -- set status bar specifics
         self.Health:SetWidth(cfg.width.L * 0.7)
@@ -122,7 +122,7 @@ UnitSpecific = {
         --lib.AddIcons(self)
 
         -- Buffs and Debuffs
-        if cfg.showTargetBuffs then	lib.AddBuffs(self, cfg.auras.BUFFPOSITIONS.target) end
+        if cfg.showTargetBuffs then    lib.AddBuffs(self, cfg.auras.BUFFPOSITIONS.target) end
         if cfg.showTargetDebuffs then lib.AddDebuffs(self,cfg.auras.DEBUFFPOSITIONS.target) end
     end,
     
@@ -219,7 +219,7 @@ UnitSpecific = {
 
         -- set frame default size
         self:SetAttribute('initial-height', cfg.height.L)
-        self:SetAttribute('initial-width', cfg.width.L)	
+        self:SetAttribute('initial-width', cfg.width.L)    
 
         -- set status bar specifics
         self.Health:SetWidth(cfg.width.L * 0.7)
@@ -242,13 +242,13 @@ UnitSpecific = {
         --lib.AddIcons(self)
 
         -- Buffs and Debuffs
-        if cfg.showTargetBuffs then	lib.AddBuffs(self, cfg.auras.BUFFPOSITIONS.target) end
+        if cfg.showTargetBuffs then    lib.AddBuffs(self, cfg.auras.BUFFPOSITIONS.target) end
         if cfg.showTargetDebuffs then lib.AddDebuffs(self,cfg.auras.DEBUFFPOSITIONS.target) end
     end,
     
     focustarget = function(self)
         -- unit specifics
-        self.unitType = "targettarget"
+        self.unitType = "focustarget"
 
         -- add frame
         lib.AddHealthBar(self)
@@ -338,66 +338,66 @@ oUF:Factory(function(self)
     if cfg.showRaid then
         self:SetActiveStyle('viv5Raid')
         local raid = oUF:SpawnHeader("oUF_Raid", nil, "custom [@raid26,exists] hide;show", 
-		"showRaid", cfg.showRaid,  
-		"showPlayer", true,
-		"showSolo", cfg.raidShowSolo,
-		"showParty", cfg.showParty,
-		"xoffset", 9,
-		"yOffset", 5,
-		"groupFilter", "1,2,3,4,5",
-		"groupBy", "GROUP",
-		"groupingOrder", "1,2,3,4,5",
-		"sortMethod", "INDEX",
-		"maxColumns", "5",
-		"unitsPerColumn", 5,
-		"columnSpacing", 7,
-		"point", "LEFT",
-		"columnAnchorPoint", cfg.raidAnchorPoint,
-		"oUF-initialConfigFunction", ([[
-		self:SetWidth(%d)
-		self:SetHeight(%d)
-		]]):format(72, 28))
-		raid:SetScale(cfg.raidScale)
-		raid:SetPoint("BOTTOMLEFT", UIParent, cfg.raidRelativePoint, cfg.raidX, cfg.raidY)
-		CompactRaidFrameContainer:Hide() 
-		CompactRaidFrameManager:SetAlpha(0)
+        "showRaid", cfg.showRaid,  
+        "showPlayer", true,
+        "showSolo", cfg.raidShowSolo,
+        "showParty", cfg.showParty,
+        "xoffset", 9,
+        "yOffset", 5,
+        "groupFilter", "1,2,3,4,5",
+        "groupBy", "GROUP",
+        "groupingOrder", "1,2,3,4,5",
+        "sortMethod", "INDEX",
+        "maxColumns", "5",
+        "unitsPerColumn", 5,
+        "columnSpacing", 7,
+        "point", "LEFT",
+        "columnAnchorPoint", cfg.raidAnchorPoint,
+        "oUF-initialConfigFunction", ([[
+        self:SetWidth(%d)
+        self:SetHeight(%d)
+        ]]):format(72, 28))
+        raid:SetScale(cfg.raidScale)
+        raid:SetPoint("BOTTOMLEFT", UIParent, cfg.raidRelativePoint, cfg.raidX, cfg.raidY)
+        CompactRaidFrameContainer:Hide() 
+        CompactRaidFrameManager:SetAlpha(0)
 
-		local raid40 = oUF:SpawnHeader("oUF_Raid40", nil, "custom [@raid26,exists] show;hide", 
-		"showRaid", cfg.showRaid,  
-		"showPlayer", true,
-		"showSolo", cfg.raidShowSolo,
-		"showParty", cfg.showParty,
-		"xoffset", 9,
-		"yOffset", 5,
-		"groupFilter", "1,2,3,4,5",
-		"groupBy", "GROUP",
-		"groupingOrder", "1,2,3,4,5",
-		"sortMethod", "INDEX",
-		"maxColumns", "8",
-		"unitsPerColumn", 5,
-		"columnSpacing", 7,
-		"point", "LEFT",
-		"columnAnchorPoint", cfg.raid40AnchorPoint,
-		"oUF-initialConfigFunction", ([[
-		self:SetWidth(%d)
-		self:SetHeight(%d)
-		]]):format(72, 28))
-		raid40:SetScale(cfg.raidScale)
-		raid40:SetPoint("TOPLEFT", UIParent, cfg.raid40RelativePoint, cfg.raid40X, cfg.raid40Y)
+        local raid40 = oUF:SpawnHeader("oUF_Raid40", nil, "custom [@raid26,exists] show;hide", 
+        "showRaid", cfg.showRaid,  
+        "showPlayer", true,
+        "showSolo", cfg.raidShowSolo,
+        "showParty", cfg.showParty,
+        "xoffset", 9,
+        "yOffset", 5,
+        "groupFilter", "1,2,3,4,5",
+        "groupBy", "GROUP",
+        "groupingOrder", "1,2,3,4,5",
+        "sortMethod", "INDEX",
+        "maxColumns", "8",
+        "unitsPerColumn", 5,
+        "columnSpacing", 7,
+        "point", "LEFT",
+        "columnAnchorPoint", cfg.raid40AnchorPoint,
+        "oUF-initialConfigFunction", ([[
+        self:SetWidth(%d)
+        self:SetHeight(%d)
+        ]]):format(72, 28))
+        raid40:SetScale(cfg.raidScale)
+        raid40:SetPoint("TOPLEFT", UIParent, cfg.raid40RelativePoint, cfg.raid40X, cfg.raid40Y)
     end
 
     -- Boss frames
-	if cfg.showBossFrames then
-		self:SetActiveStyle('viv5Boss')
-		local bossFrames = {}
-		for i = 1, MAX_BOSS_FRAMES do
-			local unit = self:Spawn('boss' .. i)
-			if i > 1 then
-				unit:SetPoint('BOTTOMLEFT', bossFrames[i - 1], 'TOPLEFT', 0, 8)
-			else
-				unit:SetPoint('BOTTOMLEFT', oUF_viv5Target, 'TOPRIGHT', 100, 90) 
-			end
-			bossFrames[i] = unit
-		end
-	end
+    if cfg.showBossFrames then
+        self:SetActiveStyle('viv5Boss')
+        local bossFrames = {}
+        for i = 1, MAX_BOSS_FRAMES do
+            local unit = self:Spawn('boss' .. i)
+            if i > 1 then
+                unit:SetPoint('BOTTOMLEFT', bossFrames[i - 1], 'TOPLEFT', 0, 8)
+            else
+                unit:SetPoint('BOTTOMLEFT', oUF_viv5Target, 'TOPRIGHT', 100, 90) 
+            end
+            bossFrames[i] = unit
+        end
+    end
 end)
