@@ -1,6 +1,6 @@
 -----------------------------
 -- |oUF_viv5
--- |rebuild by Celsuis
+-- |rebuild by EbonyIvory
 -----------------------------
 
 -----------------------------
@@ -165,8 +165,8 @@ lib.AddPowerBar = function(self)
     pp.Border:SetPoint("TOPLEFT", pp, "TOPLEFT", -5, 5)
     pp.Border:SetPoint("BOTTOMRIGHT", pp, "BOTTOMRIGHT", 5, -5)
     pp.Border:SetBackdrop{edgeFile = cfg.glowTex2, edgeSize = 5, insets = {left = 3, right = 3, top = 3, bottom = 3}}
-    pp.Border:SetBackdropColor(0, 0, 0, 0.8)
-    pp.Border:SetBackdropBorderColor(0, 0, 0)
+    pp.Border:SetBackdropColor(0, 0, 0, 0)
+    pp.Border:SetBackdropBorderColor(0, 0, 0, 0.8)
     
     self.Power.PostUpdate = PostUpdatePower
     self.Power.Smooth = cfg.smoothPower
@@ -200,32 +200,74 @@ lib.AddBorder = function(self)
     self.Border = CreateFrame("Frame", nil, self)
     self.Border:SetPoint("TOPLEFT", self, "TOPLEFT", -5, 5)
     self.Border:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", 5, -5)
-    self.Border:SetBackdrop({edgeFile = cfg.glowTex2, edgeSize = 5, insets = {left = 3, right = 3, top = 3, bottom = 3}})
-    self.Border:SetBackdropColor(0, 0, 0, 0.8)
-    self.Border:SetBackdropBorderColor(0, 0, 0)
+    self.Border:SetBackdrop({edgeFile = cfg.glowTex, edgeSize = 5, insets = {left = 3, right = 3, top = 3, bottom = 3}})
+    self.Border:SetBackdropColor(0, 0, 0, 0)
+    self.Border:SetBackdropBorderColor(0, 0, 0, 1)
 end
 
 lib.AddTextTags = function(self)
-    local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 1.6, cfg.fontF)
-    hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
-    self:Tag(hp, "[viv5:hp]")
-
-    local perhp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS, cfg.fontF)
-    perhp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
-    self:Tag(perhp, "[viv5:perhp]")
-
-    local pp = GenFontString(self.Power, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)
-    pp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
-    self:Tag(pp, "[viv5:power]")
-
-    local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
-    self:Tag(name, "[viv5:afkdnd][viv5:color][viv5:shortname]")
-
     if self.unitType == "player" then
+        local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 1.6, cfg.fontF)
+        hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(hp, "[viv5:hp]")
         hp:SetPoint("BOTTOMRIGHT", self, "TOPRIGHT", 0, 0)
-        perhp:SetPoint("TOPLEFT", self.Health, "TOPLEFT", 1, -1)
+
+        local perhp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS, cfg.fontF)
+        perhp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(perhp, "[viv5:perhp]")
+        perhp:SetPoint("TOPRIGHT", self.Health, "TOPRIGHT", -1, -1)
+
+        local pp = GenFontString(self.Power, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)
+        pp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(pp, "[viv5:power]")
         pp:SetPoint("BOTTOMLEFT", self.Health, "BOTTOMLEFT", 1, 0)
-        name:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 3)
+
+        if cfg.showPlayerName then
+            local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
+            self:Tag(name, "[viv5:afkdnd][viv5:color][viv5:shortname]")
+            name:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 3)
+        end
+
+    elseif self.unitType == "target" then
+        local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 1.6, cfg.fontF)
+        hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(hp, "[viv5:hp]")
+        hp:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 0)
+
+        local perhp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS, cfg.fontF)
+        perhp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(perhp, "[viv5:perhp]")
+        perhp:SetPoint("TOPLEFT", self.Health, "TOPLEFT", 1, -1)
+
+        local pp = GenFontString(self.Power, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)
+        pp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(pp, "[viv5:power]")
+        pp:SetPoint("BOTTOMRIGHT",self.Health, "BOTTOMRIGHT", -1, 0)
+
+        local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
+        self:Tag(name, "[viv5:level][viv5:color][viv5:shortname][viv5:afkdnd]")
+        name:SetPoint("BOTTOMRIGHT", self, "TOPRIGHT", 0, 3)
+
+    elseif self.unitType == "pet" then
+        local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)
+        hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(hp, "[viv5:hp]")
+        hp:SetPoint("TOPRIGHT", self.Health, "TOPRIGHT", -1, -1)
+
+        local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
+        self:Tag(name, "[viv5:color][viv5:shortname]")
+        name:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 0, -1)
+
+    elseif self.unitType == "targettarget" then
+        local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)
+        hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
+        self:Tag(hp, "[viv5:hp]")
+        hp:SetPoint("TOPLEFT", self.Health, "TOPLEFT", 1, -1)
+
+        local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
+        self:Tag(name, "[viv5:color][viv5:shortname]")
+        name:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 0, -1)
+
     end
 end
 

@@ -1,6 +1,6 @@
 -----------------------------
 -- |oUF_viv5
--- |rebuild by Celsuis
+-- |rebuild by EbonyIvory
 -----------------------------
 
 local addon, ns = ...
@@ -84,6 +84,10 @@ oUF.TagEvents["viv5:hp"] = "UNIT_HEALTH"
 
 oUF.Tags["viv5:perhp"] = function(unit)
     local per = oUF.Tags["perhp"](unit).."%" or 0
+    local min, max = UnitHealth(unit), UnitHealthMax(unit)
+    if min == max then
+        per = ""
+    end
     return per
 end
 oUF.TagEvents["viv5:perhp"] = "UNIT_HEALTH"
@@ -223,23 +227,23 @@ oUF.Tags["viv5:level"] = function(unit)
     if l <= 0 then l = "??" end
     
     if c == "worldboss" then
-        str = string.format("|cff%02x%02x%02xBoss|r",250,20,0)
+        str = string.format("|cff%02x%02x%02xBoss|r ",250,20,0)
     elseif c == "eliterare" then
-        str = string.format("|cff%02x%02x%02x%s|r|cff0080FFR|r+",d.r*255,d.g*255,d.b*255,l)
+        str = string.format("|cff%02x%02x%02x%s|r|cff0080FFR+|r ",d.r*255,d.g*255,d.b*255,l)
     elseif c == "elite" then
-        str = string.format("|cff%02x%02x%02x%s|r+",d.r*255,d.g*255,d.b*255,l)
+        str = string.format("|cff%02x%02x%02x%s+|r ",d.r*255,d.g*255,d.b*255,l)
     elseif c == "rare" then
-        str = string.format("|cff%02x%02x%02x%s|r|cff0080FFR|r",d.r*255,d.g*255,d.b*255,l)
+        str = string.format("|cff%02x%02x%02x%s|r|cff0080FFR|r ",d.r*255,d.g*255,d.b*255,l)
     else
         if not UnitIsConnected(unit) then
             str = "??"
         else
             if UnitIsPlayer(unit) then
-                str = string.format("|cff%02x%02x%02x%s",d.r*255,d.g*255,d.b*255,l)
+                str = string.format("|cff%02x%02x%02x%s|r ",d.r*255,d.g*255,d.b*255,l)
             elseif UnitPlayerControlled(unit) then
-                str = string.format("|cff%02x%02x%02x%s",d.r*255,d.g*255,d.b*255,l)
+                str = string.format("|cff%02x%02x%02x%s|r ",d.r*255,d.g*255,d.b*255,l)
             else
-                str = string.format("|cff%02x%02x%02x%s",d.r*255,d.g*255,d.b*255,l)
+                str = string.format("|cff%02x%02x%02x%s|r ",d.r*255,d.g*255,d.b*255,l)
             end
         end        
     end

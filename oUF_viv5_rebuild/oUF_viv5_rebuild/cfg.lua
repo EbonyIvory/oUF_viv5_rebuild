@@ -1,6 +1,6 @@
 -----------------------------
 -- |oUF_viv5
--- |rebuild by Celsuis
+-- |rebuild by EbonyIvory
 -----------------------------
 
 -----------------------------
@@ -17,8 +17,8 @@ local mediaFolder = "Interface\\AddOns\\oUF_viv5_rebuild\\media\\"
 -----------------------------
 
 -- Show/hide frames:
-cfg.showTot = false -- show target of target frame
-cfg.showPet = false -- show pet frame
+cfg.showTot = true -- show target of target frame
+cfg.showPet = true -- show pet frame
 cfg.showPetTarget = false -- show pet frame
 cfg.showFocus = true -- show focus frame
 cfg.showFocusTarget = false -- show focus target frame
@@ -36,8 +36,8 @@ cfg.hideRaidFrame = true -- hide Blizzard's default raid frames
 cfg.hideRaidFrameContainer = true -- hide Blizzard's default raid container (that frame with the role check button, colored ground marks, etc)
 
 -- Frame positioning 
-cfg.playerX = -220 -- Player frame's x-offset position from the relative point of the screen
-cfg.playerY = 350 -- Player frame's y-offset position from the relative point of the screen
+cfg.playerX = -150 -- Player frame's x-offset position from the relative point of the screen
+cfg.playerY = 300 -- Player frame's y-offset position from the relative point of the screen
 cfg.playerRelativePoint = "BOTTOM" -- Player frame's reference point of the screen used for X and Y offsets. Possible values are: "TOP"/"BOTTOM"/"LEFT"/"RIGHT"/"CENTER"/"TOPLEFT"/"ROPRIGHT"/"BOTTOMLEFT"/"BOTTOMRIGHT"
 cfg.targetX = -cfg.playerX -- Target frame's x-offset position from the relative point of the screen
 cfg.targetY = cfg.playerY -- Target frame's y-offset position from the relative point of the screen
@@ -86,6 +86,8 @@ cfg.showBossBuffs = false
 
 -- viv5 org cfg
 -- SETUP --
+cfg.showPlayerName = false
+
 cfg.mainColor = {80/255, 64/255, 77/255}        -- mainly used for healthbar
 cfg.sndColor = {208/255, 172/255, 146/255}      -- font color, ...
 cfg.trdColor = {220/255, 220/255, 220/255}      -- castbar, buff/debuff borders
@@ -134,8 +136,8 @@ cfg.weapEnchant_Y = -2
 -- initial frame size
 cfg.height = {
     ["L"] = 32,     -- player, target, focus
-    ["M"] = 18,     -- arena, MT, ...
-    ["S"] = 18,     -- ToT, FocusTarget, pet
+    ["M"] = 26,     -- arena, MT, ...
+    ["S"] = 20,     -- ToT, FocusTarget, pet
     ["R"] = 32      -- raid, party
 } 
 
