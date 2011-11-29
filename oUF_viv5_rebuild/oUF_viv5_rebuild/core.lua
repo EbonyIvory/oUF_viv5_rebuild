@@ -166,9 +166,25 @@ UnitSpecific = {
         lib.AddPowerBar(self)
         lib.AddBorder(self)
 
+        -- set frame size
+        -- self:SetScale(cfg.frameScale)
+        self:SetWidth(cfg.width.S)
+        self:SetHeight(cfg.height.S)
+
+        -- set status bar specifics
+        self.Health:SetWidth(cfg.width.S)
+        self.Health:SetHeight(cfg.height.S)
+        self.Health:SetPoint("LEFT", self, "LEFT", 0, 0)
+        self.Power:SetWidth(cfg.width.S * 0.6)
+        self.Power:SetHeight(cfg.powerBarHeight)
+        self.Power:SetPoint("BOTTOMLEFT", self.Health, "BOTTOMLEFT", 2, 0)
+
         -- set frame default size
         self:SetAttribute('initial-height', cfg.height.S)
         self:SetAttribute('initial-width', cfg.width.S)
+
+        -- add text
+        lib.AddTextTags(self)
     end,
     
     targettarget = function(self)
@@ -190,6 +206,36 @@ UnitSpecific = {
         self.Health:SetHeight(cfg.height.S)
         self.Health:SetPoint("RIGHT", self, "RIGHT", 0, 0)
 
+        self.Power:SetWidth(cfg.width.S * 0.6)
+        self.Power:SetHeight(cfg.powerBarHeight)
+        self.Power:SetPoint("BOTTOMRIGHT", self.Health, "BOTTOMRIGHT", -2, 0)
+
+        -- set frame default size
+        self:SetAttribute('initial-height', cfg.height.S)
+        self:SetAttribute('initial-width', cfg.width.S)
+
+        -- add text
+        lib.AddTextTags(self)
+    end,
+
+    targettargettarget = function(self)
+        -- unit specifics
+        self.unitType = "targettargettarget"
+
+        -- add frame
+        lib.AddHealthBar(self)
+        lib.AddPowerBar(self)
+        lib.AddBorder(self)
+
+        -- set frame size
+        -- self:SetScale(cfg.frameScale)
+        self:SetWidth(cfg.width.S)
+        self:SetHeight(cfg.height.S)
+
+        -- set status bar specifics
+        self.Health:SetWidth(cfg.width.S)
+        self.Health:SetHeight(cfg.height.S)
+        self.Health:SetPoint("LEFT", self, "LEFT", 0, 0)
         self.Power:SetWidth(cfg.width.S * 0.6)
         self.Power:SetHeight(cfg.powerBarHeight)
         self.Power:SetPoint("BOTTOMRIGHT", self.Health, "BOTTOMRIGHT", -2, 0)
@@ -236,7 +282,7 @@ UnitSpecific = {
         self.Portrait:SetPoint("TOPLEFT", self.Health, "TOPRIGHT", 0, 0)
 
         -- add text
-        --lib.AddTextTags(self)
+        lib.AddTextTags(self)
 
         -- add extra frame
         --lib.AddIcons(self)
@@ -255,9 +301,26 @@ UnitSpecific = {
         lib.AddPowerBar(self)
         lib.AddBorder(self)
 
+        -- set frame size
+        -- self:SetScale(cfg.frameScale)
+        self:SetWidth(cfg.width.S)
+        self:SetHeight(cfg.height.S)
+
+        -- set status bar specifics
+        self.Health:SetWidth(cfg.width.S)
+        self.Health:SetHeight(cfg.height.S)
+        self.Health:SetPoint("RIGHT", self, "RIGHT", 0, 0)
+
+        self.Power:SetWidth(cfg.width.S * 0.6)
+        self.Power:SetHeight(cfg.powerBarHeight)
+        self.Power:SetPoint("BOTTOMRIGHT", self.Health, "BOTTOMRIGHT", -2, 0)
+
         -- set frame default size
         self:SetAttribute('initial-height', cfg.height.S)
         self:SetAttribute('initial-width', cfg.width.S)
+
+        -- add text
+        lib.AddTextTags(self)
     end
 }
 
@@ -322,11 +385,14 @@ oUF:Factory(function(self)
     if cfg.showTot then
         self:Spawn('targettarget'):SetPoint("TOPRIGHT",oUF_viv5Target,"BOTTOMRIGHT", 0, -8)
     end
+    if cfg.showTotot then
+        self:Spawn('targettargettarget'):SetPoint("TOPLEFT", oUF_viv5Target, "BOTTOMLEFT", 0, -8)
+    end
     if cfg.showPet then
         self:Spawn('pet'):SetPoint("TOPLEFT",oUF_viv5Player,"BOTTOMLEFT", 0, -8)
     end
     if cfg.showPetTarget then
-        self:Spawn('pettarget'):SetPoint("BOTTOMRIGHT",oUF_viv5Player,"TOPRIGHT", 0, -8)
+        self:Spawn('pettarget'):SetPoint("TOPRIGHT",oUF_viv5Player, "BOTTOMRIGHT", 0, -8)
     end
     if cfg.showFocus then
         self:Spawn('focus'):SetPoint("BOTTOMLEFT",oUF_viv5Target,"TOPLEFT", 0, 36)

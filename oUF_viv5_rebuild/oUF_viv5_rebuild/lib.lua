@@ -248,7 +248,7 @@ lib.AddTextTags = function(self)
         self:Tag(name, "[viv5:level][viv5:color][viv5:shortname][viv5:afkdnd]")
         name:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 0, 3)
 
-    elseif self.unitType == "pet" then
+    elseif self.unitType == "pet" or self.unitType == "pettarget" then
         local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)
         hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
         self:Tag(hp, "[viv5:hp]")
@@ -256,9 +256,9 @@ lib.AddTextTags = function(self)
 
         local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
         self:Tag(name, "[viv5:color][viv5:shortname]")
-        name:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 0, -1)
+        name:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 0, -2)
 
-    elseif self.unitType == "targettarget" then
+    elseif self.unitType == "targettarget" or self.unitType == "targettargettarget" or self.unitType == "focustarget" then
         local hp = GenFontString(self.Health, cfg.numbFont, cfg.numbFS * 0.8, cfg.fontF)
         hp:SetTextColor(cfg.sndColor[1], cfg.sndColor[2], cfg.sndColor[3])
         self:Tag(hp, "[viv5:hp]")
@@ -266,7 +266,7 @@ lib.AddTextTags = function(self)
 
         local name = GenFontString(self, cfg.nameFont, cfg.nameFS, cfg.fontF)
         self:Tag(name, "[viv5:color][viv5:shortname]")
-        name:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 0, -1)
+        name:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 0, -2)
 
     end
 end

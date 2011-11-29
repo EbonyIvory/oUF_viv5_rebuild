@@ -30,28 +30,32 @@ local ColorHex = function(r, g, b)
     end
 end
 
-local utf8sub = function(string, i, dots)
+local Utf8Sub = function(string, i, dots)
     local bytes = string:len()
     if (bytes <= i) then
         return string
     else
         local len, pos = 0, 1
         while(pos <= bytes) do
-            len = len + 1
+            -- len = len + 1
             local c = string:byte(pos)
             if (c > 0 and c <= 127) then
                 pos = pos + 1
+                len = len + 1
             elseif (c >= 192 and c <= 223) then
                 pos = pos + 2
+                len = len + 1
             elseif (c >= 224 and c <= 239) then
                 pos = pos + 3
+                len = len + 2
             elseif (c >= 240 and c <= 247) then
                 pos = pos + 4
+                len = len + 2
             end
-            if (len == i) then break end
+            if (len >= i * 2 -1) then break end
         end
 
-        if (len == i and pos <= bytes) then
+        if (len >= i * 2 - 1 and pos <= bytes) then
             return string:sub(1, pos - 1)..(dots and '...' or '')
         else
             return string
@@ -62,7 +66,7 @@ end
 
 oUF.Tags["viv5:shortname"] = function(unit)
     local name = UnitName(unit)
-    return utf8sub(name, 6, true)
+    return Utf8Sub(name, 6, true)
 end
 oUF.TagEvents["viv5:shortname"] = 'UNIT_NAME_UPDATE'
 

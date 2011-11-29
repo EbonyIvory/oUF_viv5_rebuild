@@ -18,8 +18,9 @@ local mediaFolder = "Interface\\AddOns\\oUF_viv5_rebuild\\media\\"
 
 -- Show/hide frames:
 cfg.showTot = true -- show target of target frame
+cfg.showTotot = true -- show target of target of target frame
 cfg.showPet = true -- show pet frame
-cfg.showPetTarget = false -- show pet frame
+cfg.showPetTarget = true -- show pet frame
 cfg.showFocus = true -- show focus frame
 cfg.showFocusTarget = false -- show focus target frame
 cfg.showBossFrames = false    -- Show boss frames
@@ -100,7 +101,7 @@ cfg.glowTex = mediaFolder.."glowTex"            -- HP border texture (also used 
 cfg.glowTex2 = mediaFolder.."glowTex2"          -- PP border texture (also used for debuff highlight) -- glowTex, glowTex2, glowTex3, glowTex4 (thin > thicker) 
     
 cfg.nameFont = mediaFolder.."fzwbks.TTF"
-cfg.numbFont = mediaFolder.."QuadrantaBold.ttf"
+cfg.numbFont = mediaFolder.."QuadrantaRegular.ttf"
 cfg.nameFS = 12
 cfg.numbFS = 14 
 cfg.fontF = "THINOUTLINE"           -- cfg.fontF = nil
