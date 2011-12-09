@@ -136,16 +136,16 @@ cfg.weapEnchant_Y = -2
 
 -- initial frame size
 cfg.height = {
-    ["L"] = 32,     -- player, target, focus
+    ["L"] = 35,     -- player, target, focus
     ["M"] = 26,     -- arena, MT, ...
-    ["S"] = 20,     -- ToT, FocusTarget, pet
+    ["S"] = 22,     -- ToT, FocusTarget, pet
     ["R"] = 32      -- raid, party
 } 
 
 cfg.width = {
-    ["L"] = 230,    -- player, target, focus
+    ["L"] = 255,    -- player, target, focus
     ["M"] = 128,    -- arena, MT, ...
-    ["S"] = 112,    -- ToT, FocusTarget, pet
+    ["S"] = 124,    -- ToT, FocusTarget, pet
     ["R"] = 70,     -- raid, party
 }
 

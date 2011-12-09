@@ -45,7 +45,8 @@ UnitSpecific = {
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
         lib.AddPortrait(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -73,6 +74,9 @@ UnitSpecific = {
         -- add text
         lib.AddTextTags(self)
 
+        -- add class bar
+        lib.AddClassBar(self)
+
         -- add extra frame
         --lib.AddIcons(self)
         --lib.AddClassBar(self)
@@ -90,7 +94,8 @@ UnitSpecific = {
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
         lib.AddPortrait(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -133,7 +138,8 @@ UnitSpecific = {
         -- add frame
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -164,7 +170,8 @@ UnitSpecific = {
         -- add frame
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -194,7 +201,8 @@ UnitSpecific = {
         -- add frame
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -225,7 +233,8 @@ UnitSpecific = {
         -- add frame
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -256,7 +265,8 @@ UnitSpecific = {
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
         lib.AddPortrait(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -299,7 +309,8 @@ UnitSpecific = {
         -- add frame
         lib.AddHealthBar(self)
         lib.AddPowerBar(self)
-        lib.AddBorder(self)
+        lib.AddShadow(self, cfg.glowTex2, 3)
+        lib.AddBorder(self, 3)
 
         -- set frame size
         -- self:SetScale(cfg.frameScale)
@@ -389,16 +400,16 @@ oUF:Factory(function(self)
         self:Spawn('targettargettarget'):SetPoint("TOPLEFT", oUF_viv5Target, "BOTTOMLEFT", 0, -8)
     end
     if cfg.showPet then
-        self:Spawn('pet'):SetPoint("TOPLEFT",oUF_viv5Player,"BOTTOMLEFT", 0, -8)
+        self:Spawn('pet'):SetPoint("TOPLEFT",oUF_viv5Player,"BOTTOMLEFT", 0, -13)
     end
     if cfg.showPetTarget then
-        self:Spawn('pettarget'):SetPoint("TOPRIGHT",oUF_viv5Player, "BOTTOMRIGHT", 0, -8)
+        self:Spawn('pettarget'):SetPoint("TOPRIGHT",oUF_viv5Player, "BOTTOMRIGHT", 0, -13)
     end
     if cfg.showFocus then
         self:Spawn('focus'):SetPoint("BOTTOMLEFT",oUF_viv5Target,"TOPLEFT", 0, 36)
     end
     if cfg.showFocusTarget then
-        self:Spawn('focustarget'):SetPoint("BOTTOMLEFT",oUF_viv5Target,"TOPLEFT", 0, 8)
+        self:Spawn('focustarget'):SetPoint("BOTTOMLEFT",oUF_viv5Target,"TOPLEFT", 0, -8)
     end
 
     if cfg.showRaid then
